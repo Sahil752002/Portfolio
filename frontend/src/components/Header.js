@@ -25,10 +25,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg text-white group-hover:shadow-lg transition-all duration-300">
+            <div className="p-2 bg-gradient-to-r from-navy-700 to-cyan-500 rounded-lg text-white group-hover:shadow-lg transition-all duration-300">
               <Database size={24} />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-navy-700 to-cyan-500 bg-clip-text text-transparent">
               SG
             </span>
           </Link>
