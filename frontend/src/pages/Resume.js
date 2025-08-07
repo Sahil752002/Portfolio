@@ -164,12 +164,12 @@ const Resume = () => {
               <CardContent className="px-0 pb-0">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-600 dark:text-cyan-400 mb-1">3+</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">Years Experience</div>
+                    <div className="text-2xl font-bold text-navy-700 dark:text-cyan-400 mb-1">{stats.views}</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">Resume Views</div>
                   </div>
                   <div className="text-center p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg">
-                    <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">15+</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">Projects Completed</div>
+                    <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">{stats.downloads}</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">Downloads</div>
                   </div>
                   <div className="text-center p-3 bg-white/60 dark:bg-gray-800/60 rounded-lg">
                     <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">5+</div>
