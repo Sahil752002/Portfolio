@@ -18,7 +18,7 @@ const Home = () => {
       <section className="py-20 md:py-32 px-6">
         <div className="container mx-auto text-center">
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6 animate-in slide-in-from-bottom duration-1000">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-navy-700 via-cyan-500 to-blue-600 bg-clip-text text-transparent mb-6 animate-in slide-in-from-bottom duration-1000 drop-shadow-lg">
               {personalInfo.name}
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto animate-in slide-in-from-bottom duration-1000 delay-300">
