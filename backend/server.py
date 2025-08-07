@@ -84,6 +84,88 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+# Portfolio API Endpoints
+
+@api_router.post("/contact", response_model=ContactResponse)
+async def submit_contact_form(contact_data: ContactMessageCreate, request: Request):
+    try:
+        # Get client IP address for analytics
+        client_ip = request.client.host if request.client else "unknown"
+        
+        # Create contact message
+        contact_message = ContactMessage(
+            **contact_data.dict(),
+        )
+        
+        # Save to database
+        result = await db.contact_messages.insert_one(contact_message.dict())
+        
+        if result.inserted_id:
+            logger.info(f"New contact message from {contact_data.email}: {contact_data.subject}")
+            
+            # TODO: Send email notification (optional)
+            # await send_contact_notification(contact_message)
+            
+            return ContactResponse(
+                success=True,
+                message="Thank you for your message! I'll get back to you within 24 hours.",
+                id=contact_message.id
+            )
+        else:
+            raise HTTPException(status_code=500, detail="Failed to save contact message")
+            
+    except ValidationError as e:
+        raise HTTPException(status_code=422, detail=f"Validation error: {e}")
+    except Exception as e:
+        logger.error(f"Error saving contact message: {e}")
+        raise HTTPException(status_code=500, detail="An error occurred while processing your message")
+
+@api_router.get("/contact-messages")
+async def get_contact_messages():
+    """Admin endpoint to retrieve contact messages"""
+    try:
+        messages = await db.contact_messages.find().sort("created_at", -1).to_list(100)
+        return {"success": True, "data": messages}
+    except Exception as e:
+        logger.error(f"Error fetching contact messages: {e}")
+        raise HTTPException(status_code=500, detail="Error fetching messages")
+
+@api_router.post("/resume-analytics")
+async def track_resume_action(action_data: ResumeAction, request: Request):
+    """Track resume downloads and views"""
+    try:
+        client_ip = request.client.host if request.client else "unknown"
+        
+        analytics = ResumeAnalytics(
+            action=action_data.action,
+            ip_address=client_ip
+        )
+        
+        await db.resume_analytics.insert_one(analytics.dict())
+        
+        return {"success": True, "message": "Action tracked"}
+    except Exception as e:
+        logger.error(f"Error tracking resume action: {e}")
+        return {"success": False, "message": "Tracking failed"}
+
+@api_router.get("/resume-stats")
+async def get_resume_stats():
+    """Get resume download and view statistics"""
+    try:
+        downloads = await db.resume_analytics.count_documents({"action": "download"})
+        views = await db.resume_analytics.count_documents({"action": "view"})
+        
+        return {
+            "success": True,
+            "data": {
+                "downloads": downloads,
+                "views": views
+            }
+        }
+    except Exception as e:
+        logger.error(f"Error fetching resume stats: {e}")
+        return {"success": False, "data": {"downloads": 0, "views": 0}}
+
 # Include the router in the main app
 app.include_router(api_router)
 
