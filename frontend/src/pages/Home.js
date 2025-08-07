@@ -45,7 +45,7 @@ const Home = () => {
       </section>
 
       {/* Skills Overview */}
-      <section className="py-16 px-6 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
+      <section className="py-16 px-6 bg-gray-50/80 dark:bg-slate-800/50 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
