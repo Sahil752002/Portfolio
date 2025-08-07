@@ -35,6 +35,37 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+# Contact Form Models
+class ContactMessage(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: EmailStr
+    subject: str
+    message: str
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    status: str = Field(default="new")
+
+class ContactMessageCreate(BaseModel):
+    name: str = Field(..., min_length=2, max_length=100)
+    email: EmailStr
+    subject: str = Field(..., min_length=5, max_length=200)
+    message: str = Field(..., min_length=10, max_length=2000)
+
+class ContactResponse(BaseModel):
+    success: bool
+    message: str
+    id: Optional[str] = None
+
+# Resume Analytics Models
+class ResumeAnalytics(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    action: str  # 'download', 'view'
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    ip_address: Optional[str] = None
+
+class ResumeAction(BaseModel):
+    action: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
