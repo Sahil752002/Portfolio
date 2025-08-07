@@ -10,6 +10,38 @@ const API = `${BACKEND_URL}/api`;
 
 const Resume = () => {
   const resumeUrl = "https://customer-assets.emergentagent.com/job_gupta-analytics/artifacts/8y14yuwx_Sahil%20Gupta%20Data%20Analyst%20Resume.pdf";
+  const [stats, setStats] = useState({ downloads: 0, views: 0 });
+
+  useEffect(() => {
+    // Track resume page view
+    trackResumeAction('view');
+    // Fetch current stats
+    fetchResumeStats();
+  }, []);
+
+  const trackResumeAction = async (action) => {
+    try {
+      await axios.post(`${API}/resume-analytics`, { action });
+    } catch (error) {
+      console.error('Error tracking resume action:', error);
+    }
+  };
+
+  const fetchResumeStats = async () => {
+    try {
+      const response = await axios.get(`${API}/resume-stats`);
+      if (response.data.success) {
+        setStats(response.data.data);
+      }
+    } catch (error) {
+      console.error('Error fetching resume stats:', error);
+    }
+  };
+
+  const handleDownload = () => {
+    trackResumeAction('download');
+    fetchResumeStats(); // Refresh stats after download
+  };
 
   return (
     <div className="min-h-screen py-16 px-6">
