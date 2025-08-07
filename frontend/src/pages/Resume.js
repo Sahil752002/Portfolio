@@ -56,8 +56,8 @@ const Resume = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-3 text-lg">
-              <a href={resumeUrl} download="Sahil_Gupta_Data_Analyst_Resume.pdf">
+            <Button asChild size="lg" className="bg-gradient-to-r from-navy-700 to-cyan-500 hover:from-navy-800 hover:to-cyan-600 text-white px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <a href={resumeUrl} download="Sahil_Gupta_Data_Analyst_Resume.pdf" onClick={handleDownload}>
                 <Download className="mr-2" size={20} />
                 Download PDF
               </a>
