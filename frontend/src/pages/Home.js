@@ -21,10 +21,10 @@ const Home = () => {
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-navy-700 via-cyan-500 to-blue-600 bg-clip-text text-transparent mb-6 animate-in slide-in-from-bottom duration-1000 drop-shadow-lg">
               {personalInfo.name}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto animate-in slide-in-from-bottom duration-1000 delay-300">
+            <p className="text-xl md:text-2xl text-gray-800 dark:text-gray-300 mb-8 max-w-3xl mx-auto animate-in slide-in-from-bottom duration-1000 delay-300 font-medium">
               {personalInfo.title}
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto animate-in slide-in-from-bottom duration-1000 delay-500">
+            <p className="text-lg text-gray-700 dark:text-gray-400 mb-10 max-w-2xl mx-auto animate-in slide-in-from-bottom duration-1000 delay-500">
               {personalInfo.tagline}
             </p>
           </div>
