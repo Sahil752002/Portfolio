@@ -41,8 +41,8 @@ const Header = () => {
                 to={path}
                 className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
                   isActive(path)
-                    ? 'text-blue-600 dark:text-cyan-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400'
+                    ? 'text-navy-700 dark:text-cyan-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-navy-700 dark:hover:text-cyan-400'
                 }`}
               >
                 {label}
