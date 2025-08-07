@@ -47,7 +47,7 @@ const Header = () => {
               >
                 {label}
                 {isActive(path) && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-navy-700 to-cyan-500 rounded-full" />
                 )}
               </Link>
             ))}
