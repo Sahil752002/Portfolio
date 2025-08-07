@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Download, ExternalLink, Mail, Linkedin, Github } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { personalInfo } from '../data/mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Resume = () => {
   const resumeUrl = "https://customer-assets.emergentagent.com/job_gupta-analytics/artifacts/8y14yuwx_Sahil%20Gupta%20Data%20Analyst%20Resume.pdf";
