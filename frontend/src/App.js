@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <div className="App min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 dark:from-navy-900 dark:via-slate-900 dark:to-blue-900">
+        <div className="App min-h-screen bg-gradient-to-br from-slate-100 via-cyan-50 to-blue-50 dark:from-navy-900 dark:via-slate-900 dark:to-blue-900">
           <Header />
           <main className="pt-16">
             <Routes>
