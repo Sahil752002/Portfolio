@@ -30,12 +30,12 @@ const Home = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in slide-in-from-bottom duration-1000 delay-700">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-3 text-lg">
+            <Button asChild size="lg" className="bg-gradient-to-r from-navy-700 to-cyan-500 hover:from-navy-800 hover:to-cyan-600 text-white px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
               <Link to="/projects">
                 View Projects <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="px-8 py-3 text-lg border-2">
+            <Button asChild variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-navy-700 text-navy-700 hover:bg-navy-700 hover:text-white shadow-lg hover:shadow-xl transition-all duration-300">
               <Link to="/contact">
                 Contact Me
               </Link>
