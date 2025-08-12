@@ -2,8 +2,8 @@
 export const personalInfo = {
   name: "Sahil Gupta",
   title: "Data Analyst | Automation Enthusiast | Future-Ready Creator",
-  email: "sahil.gupta@email.com",
-  linkedin: "https://linkedin.com/in/sahilgupta",
+  email: "sahilgupta7528@gmail.com",
+  linkedin: "www.linkedin.com/in/sahilgupta7528",
   github: "https://github.com/sahilgupta",
   location: "India",
   tagline: "Transforming data into actionable insights and building intelligent automation solutions",
@@ -122,8 +122,8 @@ export const testimonials = [
 ];
 
 export const contactInfo = {
-  email: "sahil.gupta@email.com",
-  linkedin: "https://linkedin.com/in/sahilgupta",
+  email: "sahilgupta7528@gmail.com",
+  linkedin: "www.linkedin.com/in/sahilgupta7528",
   github: "https://github.com/sahilgupta",
   location: "India",
   availability: "Available for freelance projects and full-time opportunities"
